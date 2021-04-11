@@ -12,12 +12,12 @@
 #include <string.h>
 #include <tcpsocket.h>
 
-#include "components/freertos_cpp/semaphore.h"
-#include "components/onewire/onewire.h"
-#include "components/onewire/ds18b20.h"
-#include "components/tft/tft.h"
-#include "components/jbvprotocol/client.h"
-#include "components/tcpip/tcplistener.h"
+#include "lib/freertos_cpp/semaphore.h"
+#include "lib/onewire/onewire.h"
+#include "lib/onewire/ds18b20.h"
+#include "lib/tft/tft.h"
+#include "lib/jbvprotocol/client.h"
+#include "lib/tcpip/tcplistener.h"
 #include "settings.h"
 
 TFT tft = TFT::Get_ILI9341();

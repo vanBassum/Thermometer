@@ -11,7 +11,7 @@
 #include <vector>
 #include <stdint.h>
 #include "nvs_flash.h"
-#include "../components/freertos_cpp/semaphore.h"
+#include "../lib/freertos_cpp/semaphore.h"
 
 
 class BaseSettings;
