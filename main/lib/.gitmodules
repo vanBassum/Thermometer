@@ -1,4 +1,0 @@
-
-[submodule "onewire/owb"]
-	path = onewire/owb
-	url = https://github.com/DavidAntliff/esp32-owb
