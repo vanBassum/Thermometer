@@ -56,42 +56,6 @@ void Accepted(TCPSocket *sock)
 	client.SetConnection(sock);
 }
 
-void HandleFrame(JBVProtocol::Client *c, JBVProtocol::Frame *frame)
-{
-	int sep = -1;
-
-	for(int i=0; i<frame->DataLength; i++)
-	{
-		if(frame->Data[i] == ' ')
-		{
-			sep = i;
-			break;
-		}
-	}
-
-	int len = sep;
-	if(len == -1)
-		len = frame->DataLength;
-
-	char buf[frame->DataLength + 1];
-	memcpy(buf, frame->Data, frame->DataLength);
-	buf[frame->DataLength] = 0;
-
-	if(strcmp(buf, "DTMP") == 0)
-	{
-		//Prepare reply.
-		std::string reply = std::to_string(tmp1);
-		JBVProtocol::Frame txFrame;
-		txFrame.Sequence = frame->Sequence;
-		txFrame.RxID = frame->TxID;
-		txFrame.SetData(reply.c_str(), reply.length());
-		c->SendFrame(&txFrame);
-
-	}
-
-
-
-}
 
 
 void app_main(void)
@@ -125,7 +89,7 @@ void app_main(void)
 	TCPListener listener;
 	listener.OnSocketAccepted.Bind(&Accepted);
 
-	client.HandleFrame.Bind(&HandleFrame);
+	//client.HandleFrame.Bind(&HandleFrame);
 
 /*
 
